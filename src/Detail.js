@@ -13,11 +13,27 @@ const Detail = ({
       {({ loading, data, error }) => {
         if (loading) return <div>Loading...</div>;
         if (error) return <div>Something happened!</div>;
-        console.log(data);
+        console.log(data.suggestions);
         return (
           <>
-            <div>{data.movie.title}</div>
-            <Link to={"/"}>Go back to main</Link>
+            <div>
+              <h3>{data.movie.title}</h3>
+            </div>
+            <Link to={"/"}>Back</Link>
+
+            <hr />
+            <h4>Suggestions</h4>
+            <div>
+              {data.suggestions.map((sug, i) => {
+                return (
+                  <>
+                    <div key={i}>
+                      <Link to={`/detail/${sug.id}`}>{sug.title}</Link>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
           </>
         );
       }}
