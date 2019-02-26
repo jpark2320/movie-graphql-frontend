@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { ApolloProvider } from "react-apollo";
 import { HashRouter, Route } from "react-router-dom";
 
